@@ -129,6 +129,27 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 </style></head>
 
 <body>
+	<script type="text/javascript" src="bower_components/web3/dist/web3.min.js"></script>
+<script type="text/javascript">
+  function testETH(){
+    console.log('starting...');
+    var Web3 = require('web3');
+    var web3 = new Web3();
+    web3.setProvider(new web3.providers.HttpProvider("https://wallet.ethereum.org/contracts"));
+    var account = web3.eth.accounts[ 1 ];
+    var balance = web3.eth.getBalance(account);
+    console.log('account: ' + account);
+    console.log('balance: ' + balance);
+    document.getElementById('account').innerText = account;
+    document.getElementById('balance').innerText = balance;
+  }
+</script>
+</head>
+<body onload="testETH()">
+<h1>My first Ethereum Webpage</h1>
+    <p>Account:    </p>
+    <div id="account"></div>
+    Balance:<div id="balance"></div>
 
 <div class="container">
   <div class="header"><a href="#"><img src="https://hackpolyap.github.io/login/mainpage/coollogo_com-319521064.png" alt="Insert Logo Here" name="Insert_logo" width="283" height="94" id="Insert_logo" style="background-color: #009933; display: block;" /></a> 
